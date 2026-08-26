@@ -34,4 +34,4 @@ git push -u origin main
 git config --global user.name "새로운 사용자 이름"
 
 # 이메일 주소 변경
-git config --global user.드먀ㅣ "your_email@examle.com"
+git config --global user.email "your_email@examle.com"
