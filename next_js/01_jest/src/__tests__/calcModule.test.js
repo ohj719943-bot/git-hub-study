@@ -3,7 +3,6 @@
 //describe() : test()의 group을 의미, describe 는 describe 를 담을수 있다.
 
 import {divide, minus, multiply, plus} from "@/app/calcModule";
-import * as test from "node:test";
 
 describe('사칙연산 통합 테스트(정상,에러)',function (){
     describe('사칙연산테스트',function (){
