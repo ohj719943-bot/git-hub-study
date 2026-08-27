@@ -21,10 +21,19 @@ app.get('/get_method',function (req,res){
 
 //POST /login
 // {id:"admin",pw:"pass"}
-app.post('',function (){
-
+// request 의 body 에 JSON 형채의 데이처를 받을때 (예) Axios
+app.use(express.json);
+app.post('/login',function (req,res){
+    console.log(req.body);
+    const {id,pw} = req.body;
+    res.json({'body':{id,pw}});
 });
 
 // 위 URL 외의 것이 왔을때 처리
+app.use('/*path',function (req,res){
+    res.send('잘못된 요청 입니다.')
+
+});
+
 
 app.listen(80,()=>console.log('http://localhost'));
