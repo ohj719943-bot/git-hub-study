@@ -1,0 +1,30 @@
+const express = require('express');
+const app = express();
+
+//  GET /rest/admin/pass
+app.get('/rest/:id/:pw',function (req,res){
+    console.log(req.params); // post 에서는 이걸로 받을수 없다.
+    //const id = req.params.id; // 귀찮아
+    const {id,pw} = req.params; // 비구조할당으로 처리
+    res.json({
+        'msg':'잘 받았음',
+        'params':{id,pw}    // = params : {id:id,pw:pw}
+    });
+});
+
+// GET /get_mathod?id=admin&pw=pass
+app.get('/get_method',function (req,res){
+    console.log(req.query);
+    const {id,pw} = req.query;
+    res.json({'params':{id,pw}});
+})
+
+//POST /login
+// {id:"admin",pw:"pass"}
+app.post('',function (){
+
+});
+
+// 위 URL 외의 것이 왔을때 처리
+
+app.listen(80,()=>console.log('http://localhost'));
