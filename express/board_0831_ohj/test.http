@@ -1,5 +1,5 @@
-### 1. 회원 등록
-POST http://localhost/member/join
+### 1. 회원 등록1 (일반 유저)
+POST http://localhost:3000/member/join
 Content-Type: application/json
 
 {
@@ -9,8 +9,8 @@ Content-Type: application/json
   "phone": "010-1234-1234"
 }
 
-### 1. 회원 등록2
-POST http://localhost/member/join
+### 1. 회원 등록2 (관리자)
+POST http://localhost:3000/member/join
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ### 1. 회원 등록3
-POST http://localhost/member/join
+POST http://localhost:3000/member/join
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ### 1. 회원 등록4
-POST http://localhost/member/join
+POST http://localhost:3000/member/join
 Content-Type: application/json
 
 {
@@ -43,20 +43,31 @@ Content-Type: application/json
   "phone": "010-3344-5978"
 }
 
-### 2. 회원 목록
-GET http://localhost/member/list
-
-### 3. 회원 상세보기
-GET http://localhost/member/get/admin2
-
-### 4. 회원 수정
-PUT http://localhost/member/update/admin
+### 1. 회원 등록5 (ID 중복 수정: manager -> manager2)
+POST http://localhost:3000/member/join
 Content-Type: application/json
 
 {
-  "name": "관리다(수정된 이름)",
+  "id": "manager2",
+  "pw": "manager@pass",
+  "name": "크리스티나",
+  "phone": "010-2323-4545"
+}
+
+### 2. 회원 목록 조회
+GET http://localhost:3000/member/list
+
+### 3. 회원 상세보기 (아이디 수정: admin2 -> admin)
+GET http://localhost:3000/member/get/admin
+
+### 4. 회원 수정
+PUT http://localhost:3000/member/update/admin
+Content-Type: application/json
+
+{
+  "name": "관리자(수정된 이름)",
   "grade": "admin"
 }
 
 ### 5. 회원 삭제
-DELETE http://localhost/member/delete/yeardream
+DELETE http://localhost:3000/member/delete/yeardream

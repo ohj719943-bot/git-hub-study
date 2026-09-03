@@ -1,21 +1,20 @@
-// npm install express mongoose cors
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const db = require('./db');
-const connectDB = require("./db");
+const connectDB = require('./db');
 
-//middler were
-// Cross Domain Policy(JS 를 이용한 서로 다른 도메인에서 하는 통신은 막는다.)
-// 그래서 특정 IP에 대해서 허용해 주는 기능
 app.use(cors());
-app.use(express.json());//body로 보내는 json 형태로 받기
-app.use('/member',require('./member_router')); //ROUTER
+app.use(express.json()); // JSON body 수신
+app.use(express.urlencoded({ extended: true })); // form-data 수신 보강
 
-connectDB(); //
+app.use('/member', require('./member_router'));
 
-app.all('/',(req,res)=>{
-    res.send('/member 를 이용해 json, list, get, update, delete');
+connectDB();
+
+app.all('/', (req, res) => {
+    res.send('/member 를 이용해 join, list, get, update, delete');
 });
 
-app.listen(80,()=>console.log('http://localhost'));
+// 3000번 포트로 변경
+const PORT = 3000;
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
