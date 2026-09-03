@@ -46,4 +46,5 @@ resp_text = tokenizer.decode(outputs[0],skip_special_tokens=True)
 # 현재 resp_text 는 질문내용 + 답변의 형태이다.
 # 답변만 출려하고 싶다면 outputs[0][입력내용제외한 나머지] 형태로 해야 한다.
 print(resp_text)
+print(tokenizer.decode(outputs[0][input.shape[-1]:], skip_special_tokens=True))
 
